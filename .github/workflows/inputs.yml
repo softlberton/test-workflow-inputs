@@ -6,6 +6,10 @@ on:
         description: 'First input'
         required: true
         type: string
+      my-second-input:
+        description: 'Second input'
+        required: false
+        type: string
 
 jobs:
   test:
@@ -20,3 +24,4 @@ jobs:
         uses: softlberton/test-action-inputs@action-v1
         with:
           first-input: ${{ inputs.my-first-input }}
+          second-input: ${{ inputs.my-second-input }} || ${{ inputs.my-first-input }}
