@@ -1,0 +1,22 @@
+name: test-workflow-inputs
+on:
+  workflow_dispatch:
+    inputs:
+      my-first-input:
+        description: 'First input'
+        required: true
+        type: string
+
+jobs:
+  test:
+    name: test inputs
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🔽 Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Inputs action
+        uses: softlberton/test-workflow-inputs@action-v1
+        with:
+          first-input: ${{ inputs.my-first-input }}
