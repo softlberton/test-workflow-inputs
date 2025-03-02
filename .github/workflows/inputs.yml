@@ -10,7 +10,6 @@ on:
         description: 'Second input'
         required: false
         type: string
-        default: ${{ vars.OUTPUT }} || 'test input'
 
 jobs:
   test:
